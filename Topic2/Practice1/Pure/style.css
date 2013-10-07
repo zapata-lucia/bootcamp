@@ -1,0 +1,42 @@
+body{
+	font-family: sans-serif;
+}
+
+#header{
+	border-bottom: 1px solid #ccc;
+	margin: 2% 5%;
+}
+
+#header h1, #header img{
+	display: inline;
+	margin: auto 1%;
+	vertical-align: middle;
+}
+
+.pure-button-small {
+    font-size: 15px;
+}
+
+#search{
+	display: inline;
+	margin: auto 0 auto 17%;
+}
+
+#search input{
+	float: left;
+}
+
+#search button{
+	margin-top: 2%;
+	float: left;
+}
+
+#videos{
+	clear:both;
+	margin: 1% 0 0 1%;
+}
+
+.pure-u-1-4{
+	margin-top: 1%;
+	text-align: center;
+}

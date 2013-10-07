@@ -1,0 +1,51 @@
+@media screen and (max-width:599px) {
+  .page-header {
+    display: inline-block;
+  }
+
+  .page-header img{
+  	max-width: 400px;
+  	width:auto;
+  	height: auto;
+  }
+
+  .search{
+  	float: left;
+  }
+}
+
+@media screen and (min-width:600px) {
+	.page-header h1{
+		display: inline;
+		vertical-align: middle;
+		font-size: 55px;
+	}
+
+	.search{
+		float: right;
+		display: inline;
+		right: 15%;
+		vertical-align: middle;
+		width: 40%;
+	}	
+}
+
+.page-header{
+		border-bottom-color:#970C0C;
+	}
+
+
+.search input{
+	width: 60%;
+	float: left;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.row{
+	margin: 10px;
+}
+
+.col-md-3{
+	text-align: center;
+}

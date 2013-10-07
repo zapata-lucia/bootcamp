@@ -1,0 +1,170 @@
+#header{
+	margin-bottom: 0;
+	width: 100%;
+	height: auto;
+	border-bottom:1px solid #5976B6;
+	position: relative;
+}
+
+#header h1{
+	display: inline;
+	vertical-align: middle;
+	font-size: 55px;
+	margin: 1% 2%;
+		
+}
+
+#socialMedia{
+	width:17%;
+	display: inline;
+	margin-bottom: 2%;
+	margin-top: 1%;
+	position: absolute;
+	top:0;
+	right: 0;
+}
+
+#socialMedia a{
+	display: inline-block;
+	margin-right: 1%;
+}
+
+#topNews{
+	margin: 1%;
+}
+
+#topNew1, #topNew2, #topNew3{
+	height: 200px;
+	width: 400px;
+	position: relative;
+	border: 4px solid rgb(255,255,255);
+	margin: auto;
+}
+
+h3{
+	position: absolute;
+	bottom: 1%;
+	color: rgb(255,255,255);
+	text-shadow: 2px 2px #1F293D;
+	margin-left: 1%;
+}
+
+#topNew1{
+	background:url(img/topNew1.jpg) no-repeat;
+}
+
+#topNew2{
+	background:url(img/topNew2.jpg) no-repeat;
+}
+
+#topNew3{
+	background:url(img/topNew3.jpg) no-repeat;
+}
+
+#slider1{ 
+	height: 1%; 
+	overflow:hidden; 
+	padding: 0 0 10px;   
+	margin-top: 1%;
+}
+
+#slider1 .viewport{ 
+	float: left; 
+	width: 700px; 
+	height: 335px; 
+	overflow: hidden; 
+	position: relative; 
+}
+
+#slider1 .buttons{ 
+	background:url("img/buttons.png") no-repeat scroll 0 0 transparent; 
+	display: block; 
+	margin: 30px 10px 0 0; 
+	background-position: 0 -38px; 
+	text-indent: -999em; 
+	float: left; 
+	width: 39px; 
+	height: 37px; 
+	overflow: hidden; 
+	position: relative; 
+}
+
+#slider1 .next{ 
+	background-position: 0 0; 
+	margin: 30px 0 0 10px;  
+}
+
+
+#slider1 .overview{ 
+	list-style: none; 
+	position: absolute; 
+	padding: 0; 
+	margin: 0; 
+	width: 700px; 
+	left: 0 
+	top: 0; 
+}
+
+#slider1 .overview li{ 
+	float: left; 
+	margin: 0 20px 0 0; 
+	padding: 1px; 
+	height: 335px; 
+	border: 1px solid #dcdcdc; 
+	width: 700px;
+}
+
+#editorial h1{
+	margin-top: 0;
+	border-top: 1px solid #5976B6;
+
+}
+
+#editorial p{
+	overflow: auto;
+  	zoom: 1;
+	border: 1px solid #ccc;
+	padding: 3px;
+}
+
+#editorial img{
+	float: right;
+	height: 35%;
+	width: 35%;
+}
+
+#editorial a{
+	float: right;
+}
+
+#advertisment{
+	text-align: center;
+}
+
+#advertisment img{
+	height: 90%;
+	width: 90%;
+}
+
+#positions{
+	height: 235px;
+	overflow-y: scroll;
+	webkit-overflow-scrolling: touch;
+}
+
+#positions table{
+	width: 100%;
+}
+
+#positions .group{
+	background-color: #f5f5f5;
+}
+
+
+footer{
+	border-top: 1px solid #5976B6;
+}
+
+footer p{
+	font-size: 15px;
+}

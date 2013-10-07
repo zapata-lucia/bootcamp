@@ -1,0 +1,21 @@
+#page-header h1{
+	display: inline;
+	vertical-align: middle;
+}
+
+#searchDiv{
+	float: right;
+	margin-top: 7%;
+}
+
+#searchDiv a{
+	float: right;
+	background-color: #D67676;
+	border-color: #D67676;
+}
+
+#videos div{
+	margin-top: 12px;
+	text-align: center;
+}
+
