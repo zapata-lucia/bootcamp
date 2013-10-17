@@ -136,53 +136,53 @@ Movie.stop = function() {
 
 
 //MOVIE WITH MODULE PATTERN
-var Movie = (function() {
+var MovieModule = function(t,y) {
  
-  //CONSTRUCTOR
-  var Movie = function(t, y) {
-    this.title = t;
-    this.year = y;
-    extend(new Subject(), this);
-    extend(Social, this); 
+  var obj = {
+    title: t,
+    year: y 
   };
 
-  Movie.prototype.constructor = Movie;
-
-  Movie.prototype.get = function(attr) {
-    return this[attr];
+  var get = function(attr) {
+    return obj[attr];
   };
 
-  Movie.prototype.setTitle = function(attr, value) {
-    this[attr] = value;
+  var set = function(attr, value) {
+    obj[attr] = value;
   };
 
-  Movie.prototype.play = function() {
-    this.Notify(this.title + " is playing");
+  var play = function() {
+    this.Notify(obj.title + " is playing");
   };
 
-  Movie.prototype.stop = function() {
-    this.Notify(this.title + "stopped");
+  var stop = function() {
+    this.Notify(obj.title + "stopped");
   };
 
-  return Movie;
-})();
+  return {
+    get: get,
+    set: set,
+    play: play,
+    stop: stop
+  };
+};
 
+var Movie= function(t,y) {
+  extend(new MovieModule(t,y), this);
+  extend (new Subject(), this);
+  extend(Social, this);
+};
 
+ 
 //DOWNLOADABLE MOVIE
-var DownloadableMovie = (function() {
+var DownloadableMovie = function(t,y) {
 
-  var DownloadableMovie = function(t,y){
-    extend(new Movie(t,y), this);
-  };
+  extend(new Movie(t,y), this);
 
-  DownloadableMovie.prototype.constructor = DownloadableMovie; 
-
-  DownloadableMovie.prototype.download = function() {
+  this.download = function() {
     console.log(this.get("title")+ " is downloading");
   };
-
-  return DownloadableMovie;
-})();  
+};  
 
 
 
