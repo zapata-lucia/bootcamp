@@ -57,6 +57,24 @@ ObserverList.prototype.RemoveAt = function( index ){
 };
 
 
+//SUBJECT CLASS
+function Subject() {
+  this.observers = new ObserverList();
+}
+Subject.prototype.AddObserver = function( observer ) {
+  this.observers.Add( observer );
+};  
+Subject.prototype.RemoveObserver = function( observer ) {
+  this.observers.RemoveAt( this.observers.IndexOf( observer, 0 ) );
+};  
+Subject.prototype.Notify = function( context ) {
+  var observerCount = this.observers.Count();
+  for(var i=0; i < observerCount; i++){
+    this.observers.Get(i).Update( context );
+  }
+};
+
+
 // Extend an object with an extension
 function extend( extension, obj ){
   for ( var key in extension ){
@@ -64,6 +82,17 @@ function extend( extension, obj ){
   }
 }
  
+
+//MIXIN OBJECT
+var Social = {
+  share: function(friend) {
+    console.log("Sharing "+this.get("title")+" with "+ friend);    
+  },
+  like: function(){
+    console.log("You liked "+ this.get("title"));    
+  }
+};
+
 
 //MOVIE OBJECT
 /*var Movie = Object.create(null);
@@ -107,96 +136,70 @@ Movie.stop = function() {
 
 
 //MOVIE WITH MODULE PATTERN
-var Movie=(function () {
-  var title = "";
-  var year = null;
-  var actors = [];
-  return {
-    get: function(key) {
-      return this[key];
-    },
-
-    set: function (key, value) {
-      this[key] = value;
-    },
-
-    play: function() {
-      this.Notify(title+ " is playing");
-    },
-
-    stop: function() {
-      this.Notify(title+ " stop");
-    }
+var MovieModule = function(t,y) {
+ 
+  var obj = {
+    title: t,
+    year: y 
   };
 
-}());
+  var get = function(attr) {
+    return obj[attr];
+  };
 
+  var set = function(attr, value) {
+    obj[attr] = value;
+  };
 
-//SUBJECT CLASS
-function Subject() {
-  this.observers = new ObserverList();
-}
-Subject.prototype.AddObserver = function( observer ) {
-  this.observers.Add( observer );
-};  
-Subject.prototype.RemoveObserver = function( observer ) {
-  this.observers.RemoveAt( this.observers.IndexOf( observer, 0 ) );
-};  
-Subject.prototype.Notify = function( context ) {
-  var observerCount = this.observers.Count();
-  for(var i=0; i < observerCount; i++){
-    this.observers.Get(i).Update( context );
-  }
+  var play = function() {
+    this.Notify(obj.title + " is playing");
+  };
+
+  var stop = function() {
+    this.Notify(obj.title + "stopped");
+  };
+
+  return {
+    get: get,
+    set: set,
+    play: play,
+    stop: stop
+  };
 };
 
-extend(new Subject(), Movie);
-
-
-//MIXIN OBJECT
-var Social = {
-  share: function(friend) {
-    console.log("Sharing "+this.get("title")+" with "+ friend);    
-  },
-  like: function(){
-    console.log("You liked "+ this.title);    
-  }
+var Movie= function(t,y) {
+  extend(new MovieModule(t,y), this);
+  extend (new Subject(), this);
+  extend(Social, this);
 };
 
-extend(Social, Movie);
-
+ 
 //DOWNLOADABLE MOVIE
-var DownloadableMovie = {}; 
-//OR var DownloadableMovie = Object.create(Movie); 
-DownloadableMovie.download = function() {
-  console.log(this.get("title")+ "is downloading");
-};
+var DownloadableMovie = function(t,y) {
 
-extend(Movie, DownloadableMovie);
+  extend(new Movie(t,y), this);
+
+  this.download = function() {
+    console.log(this.get("title")+ " is downloading");
+  };
+};  
+
+
 
 //INSTANCES
-var terminator = Object.create(DownloadableMovie);
-terminator.set("title","Terminator");
-terminator.set("year", 1984);
+var terminator = new DownloadableMovie("Terminator", 1984);
+var goodfellas = new Movie("Goodfellas", 1990);
 
-var goodfellas = Object.create(Movie);
-goodfellas.set("title", "Goodfellas");
-goodfellas.set("year", 1990);
 
 
 //OBSERVER CLASS
-function Observer(){
-  this.play = null;
-  this.Update = function(){
-    // ...
-  };
-}
+var Observer = function() {};
+Observer.prototype.Update = function(value) {
+  console.log("Observer: " + value);
+};
 
 //CREATE MOVIE OBSERVER
 var MovieObserver = new Observer();
-MovieObserver.Update = function(value) {
-  this.play = value;
-  console.log("Movie Observer: " + this.play);
-};
 
 //ADD OBSERVER TO MOVIE
 terminator.AddObserver(MovieObserver);
