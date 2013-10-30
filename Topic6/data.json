@@ -1,0 +1,35 @@
+{
+	"personalInformation": {
+		"address": "742 Evergreen Terrace",
+		"cellphone": "15512345",
+		"birthDate": "21 de Julio de 1988",
+		"nationality": "Argentine",
+		"status": "Single"
+	},
+	"image": "profile.jpg",
+	"name": "Lucia Ayelen Zapata",
+	"profession": "Five-year Degree in Computer Sciences",
+	"languages": [{
+		"name": "Spanish",
+		"level": "native"
+		},{
+		"name": " English ",
+		"level":" advance"
+	}],
+	"education": [{
+		"institution": "Universidad Nacional del Sur",
+		"duration": "2007-2013"
+		},{
+		"institution": "Instituto Centenarios",
+		"duration": "2004-2006"
+	}],
+	"experience": [{
+		"position": " PR Manager at Microsoft",
+		"duration":"2005-2009"
+		},
+		{
+		"position": "Google's chief executive officer ",
+		"duration":"2010-Present"
+		}
+	]
+}

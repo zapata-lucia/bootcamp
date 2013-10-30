@@ -1,0 +1,21 @@
+.page-header h1 {
+	margin-left: 10px;
+}
+
+.img-thumbnail{
+	max-height: 500px;
+	max-width: 250px;
+	height: auto;
+	width: auto;
+	margin: auto;
+}
+
+#picture{
+	text-align: center;
+	height: 100%;
+}
+
+.lead{
+	margin-bottom: 0; 
+}
+
